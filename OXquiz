@@ -1,0 +1,26 @@
+class Solution {
+    public int solution(String s) {
+        
+        char [] c = s.toCharArray(); //String 대신 문자배열을 사용할 경우 c를 이용하세요.
+        
+        //필요한 코드를 작성하세요
+        int answer = 0;
+        int count=0; // 연속된 점수 모두 저장 
+        int current_cnt=0; // 몇 개가 연속인지
+
+        for (int i=0;i<c.length;i++) {
+            if (c[i]=='O') {
+                current_cnt+=1;
+                count += current_cnt;
+            }
+            else
+            {
+                answer += count; //틀린문제이면 바로 초기화
+                count=0;
+                current_cnt=0;
+            }
+        }
+        answer += count;
+        return answer;
+    }
+}
